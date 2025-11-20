@@ -30,16 +30,21 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-black overflow-x-hidden font-sans selection:bg-black selection:text-white">
+    <div className="min-h-screen bg-white text-black overflow-x-hidden font-sans selection:bg-primary selection:text-white">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b-2 border-black">
+      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b-2 border-primary">
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-2xl font-black tracking-tighter uppercase"
+            className="text-2xl font-black tracking-tighter uppercase text-primary"
           >
-            {agencyConfig.name}
+            <a href="/" className="flex items-center gap-4">
+              {agencyConfig.logo && (
+                <img src={agencyConfig.logo} alt={agencyConfig.name} className="h-12 w-auto object-contain" />
+              )}
+              <span>{agencyConfig.name}</span>
+            </a>
           </motion.div>
           
           <div className="hidden md:flex gap-8 font-bold text-sm uppercase tracking-widest">
@@ -58,7 +63,7 @@ export default function Home() {
           <motion.div 
             initial={{ height: 0 }}
             animate={{ height: "auto" }}
-            className="md:hidden bg-black text-white overflow-hidden"
+            className="md:hidden bg-primary text-white overflow-hidden"
           >
             <div className="flex flex-col p-6 gap-4 font-bold uppercase">
               <a href="#services" onClick={() => setIsMenuOpen(false)}>Services</a>
@@ -96,17 +101,35 @@ export default function Home() {
           <motion.div variants={fadeInUp}>
             <a 
               href="#destinations"
-              className="group relative inline-flex items-center gap-3 bg-black text-white px-8 py-4 text-lg font-bold uppercase tracking-wider hover:bg-gray-900 transition-all hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,0.2)] hover:-translate-y-1"
+              className="group relative inline-flex items-center gap-3 bg-primary text-white px-8 py-4 text-lg font-bold uppercase tracking-wider hover:bg-orange-700 transition-all hover:shadow-[8px_8px_0px_0px_rgba(234,88,12,0.2)] hover:-translate-y-1"
             >
               {agencyConfig.hero.cta}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
           </motion.div>
+
+          {/* Sponsors Marquee */}
+          <motion.div 
+            variants={fadeInUp}
+            className="mt-20 w-full overflow-hidden"
+          >
+            <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-8">Nos Partenaires</p>
+            <div className="flex gap-12 items-center justify-center flex-wrap opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+              {agencyConfig.sponsors.map((sponsor, index) => (
+                <img 
+                  key={index}
+                  src={sponsor.logo} 
+                  alt={sponsor.name}
+                  className="h-8 md:h-12 w-auto object-contain"
+                />
+              ))}
+            </div>
+          </motion.div>
         </motion.div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 border-y-2 border-black bg-black text-white">
+      <section className="py-20 border-y-2 border-primary bg-primary text-white">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
             {agencyConfig.stats.map((stat, index) => (
@@ -118,7 +141,7 @@ export default function Home() {
                 transition={{ delay: index * 0.2 }}
               >
                 <div className="text-5xl md:text-7xl font-black mb-2">{stat.value}</div>
-                <div className="text-lg font-bold uppercase tracking-widest text-gray-400">{stat.label}</div>
+                <div className="text-lg font-bold uppercase tracking-widest text-gray-100">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -147,11 +170,11 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="border-2 border-black p-8 hover:bg-black hover:text-white transition-colors group"
+                  className="border-2 border-primary p-8 hover:bg-primary hover:text-white transition-colors group"
                 >
                   <Icon className="w-12 h-12 mb-6 stroke-[1.5]" />
                   <h3 className="text-2xl font-bold mb-4 uppercase">{service.title}</h3>
-                  <p className="font-medium text-gray-600 group-hover:text-gray-300 leading-relaxed">
+                  <p className="font-medium text-gray-600 group-hover:text-gray-100 leading-relaxed">
                     {service.description}
                   </p>
                 </motion.div>
@@ -183,13 +206,13 @@ export default function Home() {
                 transition={{ delay: index * 0.2 }}
                 className="group relative"
               >
-                <div className="aspect-[4/5] overflow-hidden border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-transform group-hover:-translate-y-2">
+                <div className="aspect-4/5 overflow-hidden border-2 border-primary shadow-[8px_8px_0px_0px_rgba(234,88,12,1)] transition-transform group-hover:-translate-y-2">
                   <img 
                     src={dest.image} 
                     alt={dest.name}
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8 text-white">
+                  <div className="absolute inset-0 bg-linear-to-t from-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8 text-white">
                     <p className="font-bold text-lg mb-2">{dest.duration}</p>
                     <p className="text-3xl font-black">{dest.price}</p>
                   </div>
@@ -202,7 +225,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-32 px-6 border-t-2 border-black">
+      <section className="py-32 px-6 border-t-2 border-primary">
         <div className="container mx-auto max-w-4xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {agencyConfig.testimonials.map((testimonial, index) => (
@@ -211,11 +234,11 @@ export default function Home() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className="bg-black text-white p-10 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.2)]"
+                className="bg-primary text-white p-10 shadow-[8px_8px_0px_0px_rgba(234,88,12,0.2)]"
               >
                 <div className="text-6xl font-serif mb-4">"</div>
                 <p className="text-xl font-medium mb-6 leading-relaxed">{testimonial.text}</p>
-                <p className="font-bold uppercase tracking-widest text-gray-400">- {testimonial.name}</p>
+                <p className="font-bold uppercase tracking-widest text-gray-100">- {testimonial.name}</p>
               </motion.div>
             ))}
           </div>
@@ -223,7 +246,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 px-6 bg-black text-white text-center">
+      <section className="py-32 px-6 bg-primary text-white text-center">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -233,12 +256,12 @@ export default function Home() {
           <h2 className="text-5xl md:text-8xl font-black mb-8 tracking-tighter">
             {agencyConfig.ctaSection.title}
           </h2>
-          <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-gray-100 mb-12 max-w-2xl mx-auto">
             {agencyConfig.ctaSection.subtitle}
           </p>
           <a 
             href="/contact"
-            className="inline-block bg-white text-black px-12 py-5 text-xl font-black uppercase tracking-wider hover:bg-gray-200 transition-colors"
+            className="inline-block bg-white text-primary px-12 py-5 text-xl font-black uppercase tracking-wider hover:bg-gray-100 transition-colors"
           >
             {agencyConfig.ctaSection.button}
           </a>
@@ -246,16 +269,25 @@ export default function Home() {
       </section>
 
       {/* Contact / Footer */}
-      <footer id="contact" className="bg-white text-black pt-20 pb-10 px-6 border-t-2 border-black">
+      <footer id="contact" className="bg-white text-black pt-20 pb-10 px-6 border-t-2 border-primary">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-20 mb-20">
             <div>
               <h3 className="text-4xl font-black mb-8 uppercase tracking-tighter">Contact</h3>
               <div className="space-y-6 text-xl font-bold">
-                <a href={`tel:${agencyConfig.contact.phone}`} className="flex items-center gap-4 hover:text-gray-600">
-                  <Phone className="w-6 h-6" />
-                  {agencyConfig.contact.phone}
-                </a>
+                {agencyConfig.contact.phones ? (
+                  agencyConfig.contact.phones.map((phone, idx) => (
+                    <a key={idx} href={`tel:${phone.replace(/\s/g, '')}`} className="flex items-center gap-4 hover:text-gray-600">
+                      <Phone className="w-6 h-6" />
+                      {phone}
+                    </a>
+                  ))
+                ) : (
+                  <a href={`tel:${agencyConfig.contact.phone}`} className="flex items-center gap-4 hover:text-gray-600">
+                    <Phone className="w-6 h-6" />
+                    {agencyConfig.contact.phone}
+                  </a>
+                )}
                 <a href={`mailto:${agencyConfig.contact.email}`} className="flex items-center gap-4 hover:text-gray-600">
                   <Mail className="w-6 h-6" />
                   {agencyConfig.contact.email}
@@ -278,7 +310,7 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="border-t-2 border-black pt-8 flex flex-col md:flex-row justify-between items-center font-bold text-sm uppercase tracking-widest">
+          <div className="border-t-2 border-primary pt-8 flex flex-col md:flex-row justify-between items-center font-bold text-sm uppercase tracking-widest">
             <p>&copy; 2025 {agencyConfig.name}. All rights reserved.</p>
             <p>Designed with ❤️ in Algeria</p>
           </div>

@@ -1,16 +1,27 @@
 export const agencyConfig = {
-  name: "Tahwissa Travel",
+  name: "Maham Tours",
+  logo: "/maham.jpg",
   contact: {
-    phone: "+213 555 123 456",
-    email: "contact@tahwissa.dz",
-    address: "123 Rue Didouche Mourad, Alger Centre",
-    instagram: "@tahwissa_travel",
+    phone: "0550 41 91 12",
+    phones: ["0550 41 91 12", "0770 42 37 29", "0661 74 31 20"],
+    email: "mahamtours@outlook.com",
+    address: "n°24 rue Baha Ahmed, Bab Ezzouar 16000, Alger, Algeria",
+    instagram: "@maham_tours",
   },
   hero: {
     title: "khtarek blassa w khalli lbaki 3lina",
-    subtitle: "Voyagi m3ana w dcouvri denya. Men l'Algérie l'kharej, nferhouk b'a7san les offres w a7san prix.",
+    subtitle: "Voyagi m3ana w dcouvri denya, wala dir Omra ma9boula. Men l'Algérie l'kharej, nferhouk b'a7san les offres w a7san prix.",
     cta: "Chouf les offres",
   },
+  sponsors: [
+    { name: "Egyptair", logo: "/egypteair.jpg" },
+    { name: "Emirates", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Emirates_logo.svg/500px-Emirates_logo.svg.png" },
+    { name: "Qatar Airways", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/9/9b/Qatar_Airways_Logo.svg/500px-Qatar_Airways_Logo.svg.png" },
+    { name: "Air Algerie", logo: "/airalger.png" },
+    { name: "Saudia", logo: "/sau.jpg" },
+    { name: "Turkish Airlines", logo: "/turkish.jpg" },
+    { name: "Air France", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Air_France_Logo.svg/500px-Air_France_Logo.svg.png" },
+  ],
   stats: [
     { value: "+5000", label: "Client Farhan" },
     { value: "+50", label: "Wajha Siyahiya" },
@@ -39,6 +50,12 @@ export const agencyConfig = {
     },
   ],
   destinations: [
+    {
+      name: "Omra VIP",
+      price: "Dès 180 000 DA",
+      image: "https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?q=80&w=2070&auto=format&fit=crop",
+      duration: "15 Jours / 14 Nuits",
+    },
     {
       name: "Istanbul, Turquie",
       price: "Dès 85 000 DA",
