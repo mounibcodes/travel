@@ -45,7 +45,7 @@ export default function Home() {
           <div className="hidden md:flex gap-8 font-bold text-sm uppercase tracking-widest">
             <a href="#services" className="hover:underline decoration-2 underline-offset-4">Services</a>
             <a href="#destinations" className="hover:underline decoration-2 underline-offset-4">Destinations</a>
-            <a href="#contact" className="hover:underline decoration-2 underline-offset-4">Contact</a>
+            <a href="/contact" className="hover:underline decoration-2 underline-offset-4">Contact</a>
           </div>
 
           <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -63,7 +63,7 @@ export default function Home() {
             <div className="flex flex-col p-6 gap-4 font-bold uppercase">
               <a href="#services" onClick={() => setIsMenuOpen(false)}>Services</a>
               <a href="#destinations" onClick={() => setIsMenuOpen(false)}>Destinations</a>
-              <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
+              <a href="/contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
             </div>
           </motion.div>
         )}
@@ -237,7 +237,7 @@ export default function Home() {
             {agencyConfig.ctaSection.subtitle}
           </p>
           <a 
-            href="#contact"
+            href="/contact"
             className="inline-block bg-white text-black px-12 py-5 text-xl font-black uppercase tracking-wider hover:bg-gray-200 transition-colors"
           >
             {agencyConfig.ctaSection.button}
