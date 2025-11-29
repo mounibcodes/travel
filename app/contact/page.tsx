@@ -32,7 +32,7 @@ export default function ContactPage() {
           </Link>
           <div className="text-xl font-black tracking-tighter uppercase text-primary flex items-center gap-4">
             {agencyConfig.logo && (
-              <img src={agencyConfig.logo} alt={agencyConfig.name} className="h-10 w-auto object-contain" />
+              <img src={agencyConfig.logo} alt={agencyConfig.name} className="h-10 w-auto object-contain rounded-full" />
             )}
             <span>{agencyConfig.name}</span>
           </div>

@@ -13,10 +13,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Maham Tours - Agence de Voyage et Tourisme",
-  description: "Voyagi m3ana w dcouvri denya. Omra, Voyages organisés, Billetterie et Hôtels. Agence de voyage à Bab Ezzouar, Alger.",
+  title: "Zemzem Tourisme & Voyage - Agence de Voyage et Tourisme",
+  description: "Voyagi m3ana w dcouvri denya. Omra, Voyages organisés, Billetterie et Hôtels. Agence de voyage à Casbah, Alger.",
   icons: {
-    icon: "/maham.jpg",
+    icon: "/zemzem.png",
   },
 };
 

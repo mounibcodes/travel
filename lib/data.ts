@@ -1,12 +1,12 @@
 export const agencyConfig = {
-  name: "Maham Tours",
-  logo: "/maham.jpg",
+  name: "Zemzem Tourisme & Voyage",
+  logo: "/zemzem.png",
   contact: {
-    phone: "0550 41 91 12",
-    phones: ["0550 41 91 12", "0770 42 37 29", "0661 74 31 20"],
-    email: "mahamtours@outlook.com",
-    address: "n°24 rue Baha Ahmed, Bab Ezzouar 16000, Alger, Algeria",
-    instagram: "@maham_tours",
+    phone: "0560 12 30 40",
+    phones: ["0560 12 30 40"],
+    email: "zemzemtourisme@outlook.com",
+    address: "18 Ave of November 1st, Casbah 16021",
+    instagram: "@zemzem_tourisme",
   },
   hero: {
     title: "khtarek blassa w khalli lbaki 3lina",

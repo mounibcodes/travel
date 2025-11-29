@@ -41,7 +41,7 @@ export default function Home() {
           >
             <a href="/" className="flex items-center gap-4">
               {agencyConfig.logo && (
-                <img src={agencyConfig.logo} alt={agencyConfig.name} className="h-12 w-auto object-contain" />
+                <img src={agencyConfig.logo} alt={agencyConfig.name} className="h-12 w-auto object-contain rounded-full" />
               )}
               <span>{agencyConfig.name}</span>
             </a>
@@ -120,7 +120,7 @@ export default function Home() {
                   key={index}
                   src={sponsor.logo} 
                   alt={sponsor.name}
-                  className="h-8 md:h-12 w-auto object-contain"
+                  className={sponsor.name === "Air Algerie" ? "h-16 md:h-24 w-auto object-contain" : "h-8 md:h-12 w-auto object-contain"}
                 />
               ))}
             </div>
@@ -270,47 +270,47 @@ export default function Home() {
 
       {/* Contact / Footer */}
       <footer id="contact" className="bg-white text-black pt-20 pb-10 px-6 border-t-2 border-primary">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-20 mb-20">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 mb-16">
             <div>
-              <h3 className="text-4xl font-black mb-8 uppercase tracking-tighter">Contact</h3>
-              <div className="space-y-6 text-xl font-bold">
+              <h3 className="text-3xl md:text-4xl font-black mb-8 uppercase tracking-tighter">Contact</h3>
+              <div className="space-y-6 text-lg md:text-xl font-bold">
                 {agencyConfig.contact.phones ? (
                   agencyConfig.contact.phones.map((phone, idx) => (
-                    <a key={idx} href={`tel:${phone.replace(/\s/g, '')}`} className="flex items-center gap-4 hover:text-gray-600">
-                      <Phone className="w-6 h-6" />
-                      {phone}
+                    <a key={idx} href={`tel:${phone.replace(/\s/g, '')}`} className="flex items-center gap-4 hover:text-primary transition-colors">
+                      <Phone className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
+                      <span>{phone}</span>
                     </a>
                   ))
                 ) : (
-                  <a href={`tel:${agencyConfig.contact.phone}`} className="flex items-center gap-4 hover:text-gray-600">
-                    <Phone className="w-6 h-6" />
-                    {agencyConfig.contact.phone}
+                  <a href={`tel:${agencyConfig.contact.phone}`} className="flex items-center gap-4 hover:text-primary transition-colors">
+                    <Phone className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
+                    <span>{agencyConfig.contact.phone}</span>
                   </a>
                 )}
-                <a href={`mailto:${agencyConfig.contact.email}`} className="flex items-center gap-4 hover:text-gray-600">
-                  <Mail className="w-6 h-6" />
-                  {agencyConfig.contact.email}
+                <a href={`mailto:${agencyConfig.contact.email}`} className="flex items-center gap-4 hover:text-primary transition-colors">
+                  <Mail className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
+                  <span className="break-all">{agencyConfig.contact.email}</span>
                 </a>
-                <div className="flex items-center gap-4">
-                  <MapPin className="w-6 h-6" />
-                  {agencyConfig.contact.address}
+                <div className="flex items-start gap-4">
+                  <MapPin className="w-5 h-5 md:w-6 md:h-6 shrink-0 mt-1" />
+                  <span>{agencyConfig.contact.address}</span>
                 </div>
-                <a href="#" className="flex items-center gap-4 hover:text-gray-600">
-                  <Instagram className="w-6 h-6" />
-                  {agencyConfig.contact.instagram}
+                <a href={`https://instagram.com/${agencyConfig.contact.instagram.replace('@', '')}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:text-primary transition-colors">
+                  <Instagram className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
+                  <span>{agencyConfig.contact.instagram}</span>
                 </a>
               </div>
             </div>
             
             <div className="flex flex-col justify-end">
-              <h2 className="text-6xl md:text-8xl font-black tracking-tighter opacity-10 uppercase">
+              <h2 className="text-5xl md:text-6xl lg:text-8xl font-black tracking-tighter opacity-10 uppercase wrap-break-word">
                 {agencyConfig.name}
               </h2>
             </div>
           </div>
           
-          <div className="border-t-2 border-primary pt-8 flex flex-col md:flex-row justify-between items-center font-bold text-sm uppercase tracking-widest">
+          <div className="border-t-2 border-primary pt-8 flex flex-col md:flex-row justify-between items-center gap-4 font-bold text-xs md:text-sm uppercase tracking-widest text-center md:text-left">
             <p>&copy; 2025 {agencyConfig.name}. All rights reserved.</p>
             <p>Designed with ❤️ in Algeria</p>
           </div>
